@@ -15,16 +15,16 @@ export function InfoNumbers({
   tooltipLabel,
 }: InfoNumbersProps) {
   return (
-    <Flex direction="column" justify="center" align="center">
+    <Flex direction="column" align={['flex-start', 'center']} justify="center">
       <Text
-        fontSize="5xl"
+        fontSize={['3xl', '5xl']}
         color="#FFBA08"
         fontWeight="semibold"
         lineHeight="10"
       >
         {value}
       </Text>
-      <Text fontSize="2xl" fontWeight="semibold">
+      <Text fontSize={['lg', '2xl']} fontWeight={['regular', 'semibold']}>
         {title}
         {useTooltip && (
           <Box ml="1" display="inline">

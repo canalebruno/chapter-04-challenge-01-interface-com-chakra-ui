@@ -16,11 +16,18 @@ export function ContinentInfo({
   children,
 }: ContinentInfoProps) {
   return (
-    <SimpleGrid templateColumns="1fr 1fr" mx="24" my="20" px="10">
-      <Text fontSize="2xl" textAlign="justify">
+    <SimpleGrid
+      mx={['4', null, '24']}
+      my={['6', '20']}
+      px={['', '10']}
+      gap={['4', '10', '']}
+      minChildWidth="300px"
+      flex="1"
+    >
+      <Text fontSize={['md', 'lg', '2xl']} textAlign="justify">
         {children}
       </Text>
-      <HStack justifySelf="flex-end" spacing="10">
+      <HStack justifySelf={['center', null, 'flex-end']} spacing="10">
         <InfoNumbers title="países" value={countries} />
         <InfoNumbers title="línguas" value={languages} />
         <InfoNumbers

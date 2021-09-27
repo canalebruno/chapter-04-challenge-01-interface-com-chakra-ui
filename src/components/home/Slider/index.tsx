@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react';
+import { Box, useBreakpointValue } from '@chakra-ui/react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Pagination, Navigation } from 'swiper';
 
@@ -11,10 +11,17 @@ import { Slide } from './Slide';
 SwiperCore.use([Pagination, Navigation]);
 
 export default function Slider() {
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
+
   return (
-    <Box w="100vw" maxW={1440} px="24">
+    <Box w="100vw" maxW={1440} px={['0', null, '24']}>
       <Swiper
-        style={{ height: '28.125rem' }}
+        style={
+          isWideVersion ? { height: '28.125rem' } : { height: '15.625rem' }
+        }
         slidesPerView={1}
         spaceBetween={30}
         loop={true}

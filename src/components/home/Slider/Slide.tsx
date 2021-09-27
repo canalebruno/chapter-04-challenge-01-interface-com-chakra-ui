@@ -21,18 +21,18 @@ export function Slide({ image, title, subtitle, href }: SlideProps) {
         {!!href ? (
           <Link href={href} passHref>
             <ChakraLink as="a" style={{ textDecorationColor: 'white' }}>
-              <Text color="white" fontSize="5xl" fontWeight="bold">
+              <Text color="white" fontSize={['3xl', '5xl']} fontWeight="bold">
                 {title}
               </Text>
             </ChakraLink>
           </Link>
         ) : (
-          <Text color="white" fontSize="5xl" fontWeight="bold">
+          <Text color="white" fontSize={['3xl', '5xl']} fontWeight="bold">
             {title}
           </Text>
         )}
 
-        <Text fontWeight="bold" fontSize="2xl" color="white">
+        <Text fontWeight="bold" fontSize={['md', '2xl']} color="white">
           {subtitle}
         </Text>
       </Flex>

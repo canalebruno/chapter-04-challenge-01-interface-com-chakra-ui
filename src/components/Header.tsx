@@ -1,9 +1,21 @@
-import { Box, Icon, IconButton, Image, SimpleGrid } from '@chakra-ui/react';
+import {
+  Box,
+  Icon,
+  IconButton,
+  Image,
+  SimpleGrid,
+  useBreakpointValue,
+} from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { IoIosArrowBack } from 'react-icons/io';
 
 export function Header() {
   const { asPath, back } = useRouter();
+
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
 
   return (
     <SimpleGrid
@@ -11,8 +23,8 @@ export function Header() {
       as="header"
       w="100vw"
       maxW={1440}
-      py="7"
-      px="24"
+      py={['4', '4', '7']}
+      px={['0', '0', '24']}
     >
       {asPath === '/' ? (
         <Box />
@@ -25,7 +37,7 @@ export function Header() {
           onClick={() => {
             back();
           }}
-          ml="10"
+          ml={['4', '10']}
         />
       )}
 

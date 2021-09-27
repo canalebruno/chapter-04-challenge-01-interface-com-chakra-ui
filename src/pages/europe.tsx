@@ -1,10 +1,22 @@
-import { Box, Flex, SimpleGrid, Text } from '@chakra-ui/react';
-import { Card } from '../components/continent/Card';
+import {
+  Box,
+  Flex,
+  SimpleGrid,
+  Text,
+  useBreakpointValue,
+} from '@chakra-ui/react';
+import { Card } from '../components/continent/CitiesGrid/Card';
+import { CitiesGrid } from '../components/continent/CitiesGrid';
 import { ContinentBanner } from '../components/continent/ContinentBanner';
 import { ContinentInfo } from '../components/continent/ContinentInfo';
 import { Header } from '../components/Header';
 
 export default function Europe() {
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
+
   return (
     <Flex
       direction="column"
@@ -22,12 +34,12 @@ export default function Europe() {
         divide-se da Ásia a leste pela divisória de águas dos montes Urais, o
         rio Ural, o mar Cáspio, o Cáucaso, e o mar Negro a sudeste
       </ContinentInfo>
-      <Box w="100%" px="24">
-        <Text mb="10" ml="10" fontWeight="medium" fontSize="4xl">
+      <Box w="100%" px={['4', null, '24']} mt={['8', '0']}>
+        <Text mb="10" ml={['0', '10']} fontWeight="medium" fontSize="4xl">
           Cidades +100
         </Text>
       </Box>
-      <SimpleGrid mx="24" px="10" templateColumns="repeat(4,1fr)" gap="10">
+      <CitiesGrid>
         <Card
           image="london.jpg"
           city="Londres"
@@ -48,7 +60,7 @@ export default function Europe() {
           country="Holanda"
           flag="nl.svg"
         />
-      </SimpleGrid>
+      </CitiesGrid>
     </Flex>
   );
 }
